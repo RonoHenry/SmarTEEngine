@@ -1,12 +1,14 @@
-from agents.content_creator import create_teespring_post
-from agents.platform_adapter import adapt_content
-from platforms.x import post_to_x
-from platforms.instagram import post_to_instagram
-def run():
-    post = create_teespring_post()
-    x_content = adapt_content(post, "x")
-    ig_content = adapt_content(post, "instagram")
-    post_to_x(x_content)
-    post_to_instagram(ig_content)
+import sys
+sys.path.append("d:/Projects/SmarTEEngine")  # Path fix
+if sys.platform == "win32":
+    sys.stdout.reconfigure(encoding='utf-8')  # Emoji fix
+def adapt_content(content, platform):
+    if platform == "x":
+        return content[:280]
+    elif platform == "instagram":
+        return f"{content} #TeespringSale #StyleYourWay"
+    return content
 if __name__ == "__main__":
-    run()
+    sample = "🔥👕 New Arrival! Unleash Your Creativity with our Limited Edition T-Shirts on Teespring! 🎨🛍️ Shop now and let your unique style shine! #Teespring #CreativityUnleashed"
+    print(adapt_content(sample, "x"))
+    print(adapt_content(sample, "instagram"))
