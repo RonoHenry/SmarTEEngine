@@ -9,4 +9,5 @@ An Agentic AI post generator for Teespring marketing. Automates content creation
 ## Setup
 1. `pip install -r requirements.txt`
 2. `playwright install`
+3. Add your credentials to `config/credentials.yaml` (don’t commit!)
 4. Run `python src/main.py`
