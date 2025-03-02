@@ -1,4 +1,6 @@
-from models.llm_interface import generate_post
+import sys
+sys.path.append("d:/Projects/SmarTEEngine")  # Ensures src/ is in path
+from src.models.llm_interface import generate_post
 def create_teespring_post():
     prompt = "Generate a catchy post for a new Teespring t-shirt sale, keep it short"
     return generate_post(prompt)
